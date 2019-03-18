@@ -17,6 +17,8 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Chào mừng bạn đã đến wwebsite VINACOOK!"
       log_in @user
+      @user.send_activation_email
+      flash[:success] = "Please check your email to activate your account"
       redirect_to root_url
     else
       render :new

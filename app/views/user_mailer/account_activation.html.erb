@@ -1,0 +1,13 @@
+<h1>VinaCook</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+Welcome to the VinaCook! Click on the link below to activate your account:
+</p>
+
+<<<<<<< HEAD
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,                                                  email: @user.email) %>
+=======
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,                                                  email: @user.email) %>
+>>>>>>> 4e4a665... account_activation

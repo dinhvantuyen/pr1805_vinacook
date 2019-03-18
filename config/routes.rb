@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :products
   resources :users
+  resources :account_activations, only: [:edit]
+
   namespace :admin do
     root "dashboard#index"
     get "dashboard/index"
