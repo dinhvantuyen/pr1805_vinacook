@@ -7,6 +7,7 @@
   </head>
 
   <body>
+  <%= render "layouts/header" %>
   <div class="wrapper">
     <div class="container">
       <% flash.each do |message_type, message| %>
@@ -14,6 +15,7 @@
       <% end %>
     </div>
     <%= yield %>
+    <%= render "layouts/footer" %>
   </div>
   </body>
   <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
