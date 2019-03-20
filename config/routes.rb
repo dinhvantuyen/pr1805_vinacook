@@ -4,4 +4,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
 
   resources :users
+  namespace :admin do
+    root "dashboard#index"
+    get "dashboard/index"
+  end
 end

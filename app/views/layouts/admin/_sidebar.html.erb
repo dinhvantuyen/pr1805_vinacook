@@ -1,0 +1,240 @@
+ <aside class="main-sidebar">
+  <section class="sidebar">
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag "admin/user2-160x160.jpg", class: "img-circle" %>
+      </div>
+      <div class="pull-left info">
+        <p>Alexander Pierce</p>
+        <%= link_to "#" do %>
+          <i class="fa fa-circle text-success"></i> Online
+        <% end %>
+      </div>
+    </div>
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+    </form>
+    <ul class="sidebar-menu">
+      <li class="header">MAIN NAVIGATION</li>
+      <li class="active treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-dashboard"></i>
+          <span>Dashboard</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-pie-chart"></i>
+          <span>Sản phẩm</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%=link_to "Sản phẩm", "#"  %>
+          </li>
+          <li>
+            <%=link_to "Tạo mới sản phẩm", "#" %>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-laptop"></i>
+          <span>Hãng giầy</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to "Tạo hãng", "#" %>
+          </li>
+          <li>
+            <%= link_to "Hiển thị Hãng", "#" %>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-edit"></i>
+          <span>Order</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to "#" do %>
+              Info Order
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-table"></i> <span>Tables</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Simple tables
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Data tables
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-calendar"></i>
+          <span>Calendar</span>
+          <small class="label pull-right bg-red">3</small>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-envelope"></i>
+          <span>Mailbox</span>
+          <small class="label pull-right bg-yellow">12</small>
+        <% end %>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-folder"></i>
+          <span>Examples</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Invoice
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Profile
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Login
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Register
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Lockscreen
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> 404 Error
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> 500 Error
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Blank Page
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Pace Page
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <%= link_to "#" do %>
+          <i class="fa fa-share"></i>
+          <span>Multilevel</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        <% end %>
+        <ul class="treeview-menu">
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Level One
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Level One
+              <i class="fa fa-angle-left pull-right"></i>
+            <% end %>
+            <ul class="treeview-menu">
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-circle-o"></i> Level Two
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-circle-o"></i> Level Two
+                  <i class="fa fa-angle-left pull-right"></i>
+                <% end %>
+                <ul class="treeview-menu">
+                  <li>
+                    <%= link_to "#" do %>
+                      <i class="fa fa-circle-o"></i> Level Three
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                      <i class="fa fa-circle-o"></i> Level Three
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "#" do %>
+              <i class="fa fa-circle-o"></i> Level One
+            <% end %>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-book"></i>
+          <span>Documentation</span>
+        <% end %>
+      </li>
+      <li class="header">LABELS</li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-circle-o text-red"></i>
+          <span>Important</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-circle-o text-yellow"></i>
+          <span>Warning</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#" do %>
+          <i class="fa fa-circle-o text-aqua"></i>
+          <span>Information</span>
+        <% end %>
+      </li>
+    </ul>
+  </section>
+</aside>
