@@ -3,12 +3,18 @@
   <head>
     <title>Pr1805Vinacook</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+  <div class="wrapper">
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+    </div>
     <%= yield %>
+  </div>
   </body>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
 </html>
