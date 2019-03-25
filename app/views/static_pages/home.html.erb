@@ -1,7 +1,7 @@
 <h1>StaticPages#home</h1>
 <p>Find me in app/views/static_pages/home.html.erb</p>
 <% if logged_in? %>
-  <%= link_to "Logout", "#" %>
+  <%= link_to "Logout", logout_path, method: :delete %>
 <% else %>
   <%= link_to "Login", login_path %>
   <%= link_to "Sing up", signup_path %>
