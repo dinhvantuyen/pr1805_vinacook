@@ -1,0 +1,96 @@
+<% provide :title, "Chỉnh sửa thông tin" %>
+  <section class="content-header">
+    <h1>
+      Chỉnh sửa sản phẩm
+    </h1>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="row">
+            <div class="form-group">
+              <%= form_for [:admin, @product] do |f| %>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"><%= f.label :name, "Tên sản phẩm" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :name, placeholder: "Nhập tên sản phẩm", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :price, "Giá sản phẩm" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :price, placeholder: "Nhập giá", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :sale_price, "Giá khuyến mại" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :sale_price, placeholder: "Nhập giá khuyến mại", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :description, "Mô tả sản phẩm" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :description, placeholder: "Nhập mô tả sản phẩm", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"> Danh mục sản phẩm:
+                    <span class="required">
+                      *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                  <%= f.select :category_ids, Category.pluck(:name, :id), {}, multiple: true, class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"> Hình ảnh sản phẩm:
+                    <span class="required">
+                      *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.file_field :image %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :status, "Trạng thái sản phẩm" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :status, placeholder: "Trạng thái sản phẩm", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content">
+                  <div class="col-md-12">
+                    <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
