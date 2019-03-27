@@ -1,0 +1,77 @@
+<%= form_for [:admin, @product] do |f| %>
+  <div class="box-body pad">
+    <div class="form-group">
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Tên sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Giá sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.text_field :price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Hình ảnh sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.file_field :image %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Mô tả sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.text_field :description, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Giá khuyến mại:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.text_field :sale_price, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Trạng thái sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.text_field :status, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-content">
+        <label class="col-md-2 control-label"> Danh mục sản phẩm:
+          <span class="required">
+            *
+          </span>
+        </label>
+        <div class="col-md-10 mg-10">
+          <%= f.select :category_ids, @show_categories, {}, multiple: true, class: "form-control" %>
+        </div>
+      </div>
+      <%= f.submit "Thêm mới", class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

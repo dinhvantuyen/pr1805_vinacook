@@ -5,3 +5,6 @@ User.create!(name:  "dinhvantuyen",
              address: "Hanoi",
              phone: "0123456789",
              role: :admin)
+Category.create!(name: "Đồ nướng")
+Category.create!(name: "Lẩu")
+Category.create!(name: "Canh")
