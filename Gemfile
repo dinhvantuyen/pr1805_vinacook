@@ -6,6 +6,9 @@ git_source(:github) do |repo_name|
 end
 
   gem "rails", "~> 5.1.6"
+  gem "will_paginate",           "3.1.6"
+  gem "bootstrap-will_paginate", "1.0.0"
+  gem "faker"
   gem "bootstrap-sass"
   gem "font-awesome-rails"
   gem "bcrypt", "3.1.12"

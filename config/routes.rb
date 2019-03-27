@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post "/signup",  to: "users#create"
   delete "/logout", to: "sessions#destroy"
 
-
+  resources :products
   resources :users
   namespace :admin do
     root "dashboard#index"

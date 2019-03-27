@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20190315073211) do
     t.string "image"
     t.string "description"
     t.integer "sale_price"
+    t.integer "sale_count"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
