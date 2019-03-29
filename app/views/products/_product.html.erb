@@ -1,9 +1,8 @@
 <div class="custom-col-5">
   <div class="product-wrapper mb-25">
     <div class="product-img">
-      <a href="product-details" >
       <%= link_to product do %>
-        <%= image_tag product.image || "product/product3.jpg" %>
+        <%= image_tag product.image_url || "product/product3.jpg" %>
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">
@@ -17,11 +16,11 @@
     </div>
     <div class="product-content">
       <h4>
+        <%= link_to product.name, product %>
       </h4>
-      <%= link_to product.name, product %>
       <div class="product-price-wrapper">
         <span><%= product.sale_price || "$100" %></span>
-        <span class="product-price-old"><%= product.price || "$120" %> </span>
+        <span class="product-price-old"><%= product.price %> </span>
       </div>
     </div>
   </div>

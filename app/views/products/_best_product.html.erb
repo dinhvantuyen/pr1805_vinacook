@@ -1,0 +1,23 @@
+<div class="product-img testing">
+  <%= link_to best_product do %>
+    <%= image_tag best_product.image_url || "product/product3.jpg" %>
+  <% end %>
+  <div class="product-action">
+    <div class="pro-action-left">
+      <a title="Add To Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
+    </div>
+    <div class="pro-action-right">
+      <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
+      <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ion-android-open"></i></a>
+    </div>
+  </div>
+</div>
+<div class="product-content">
+  <h4>
+    <%= link_to best_product.name, best_product %>
+  </h4>
+  <div class="product-price-wrapper">
+    <span><%= best_product.sale_price || "$100" %></span>
+    <span class="product-price-old"><%= best_product.price %> </span>
+  </div>
+</div>

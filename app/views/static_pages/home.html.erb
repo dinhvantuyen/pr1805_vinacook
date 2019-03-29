@@ -67,9 +67,13 @@
       <div class="tab-content jump">
         <div id="tab1" class="tab-pane active">
           <div class="row">
-            <% @products.each do |product| %>
-              <%= render product %>
-            <% end %>
+            <%# @products.each do |product| %>
+              <!-- <div class="custom-col-5"> -->
+                <!-- <div class="product-wrapper mb-25"> -->
+                  <%= render @products %>
+                <!-- </div> -->
+              <!-- </div> -->
+            <%# end %>
             <%= will_paginate @products %>
           </div>
         </div>
@@ -119,93 +123,27 @@
           <div class="tab-content jump">
             <div id="tab4" class="tab-pane active">
               <div class="product-slider-active product-nav">
-                <% @product_best.each do |product| %>
+                <% @best_products.each do |best_product| %>
                   <div class="product-wrapper col-md-4 float-left">
-                    <div class="product-img">
-                      <%= link_to product do %>
-                      <%= image_tag product.image || "product/product3.jpg" %>
-                      <% end %>
-                      <div class="product-action">
-                        <div class="pro-action-left">
-                          <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
-                        </div>
-                        <div class="pro-action-right">
-                          <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
-                          <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ion-android-open"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-content">
-                      <h4>
-                        <a href="product-details.html">PRODUCTS NAME HERE </a>
-                      </h4>
-                      <div class="product-price-wrapper">
-                        <span>$100.00</span>
-                        <span class="product-price-old">$120.00 </span>
-                      </div>
-                    </div>
+                    <%= render "products/best_product", best_product: best_product %>
                   </div>
                 <% end %>
               </div>
             </div>
             <div id="tab5" class="tab-pane">
               <div class="product-slider-active product-nav">
-                <% @product_best.each do |product| %>
+                <% @best_products.each do |best_product| %>
                   <div class="product-wrapper col-md-4 float-left">
-                    <div class="product-img">
-                      <%= link_to product do %>
-                      <%= image_tag product.image || "product/product1.jpg" %>
-                      <% end %>
-                      <div class="product-action">
-                        <div class="pro-action-left">
-                          <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
-                        </div>
-                        <div class="pro-action-right">
-                          <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
-                          <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ion-android-open"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-content">
-                      <h4>
-                        <a href="product-details.html">PRODUCTS NAME HERE </a>
-                      </h4>
-                      <div class="product-price-wrapper">
-                        <span>$100.00</span>
-                        <span class="product-price-old">$120.00 </span>
-                      </div>
-                    </div>
+                    <%= render "products/best_product", best_product: best_product %>
                   </div>
                 <% end %>
               </div>
             </div>
             <div id="tab6" class="tab-pane">
               <div class="product-slider-active product-nav">
-                <% @product_best.each do |product| %>
+                <% @best_products.each do |best_product| %>
                   <div class="product-wrapper col-md-4 float-left">
-                    <div class="product-img">
-                      <%= link_to product do %>
-                      <%= image_tag product.image || "product/product3.jpg" %>
-                      <% end %>
-                      <div class="product-action">
-                        <div class="pro-action-left">
-                          <a title="Add Tto Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
-                        </div>
-                        <div class="pro-action-right">
-                          <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
-                          <a title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#"><i class="ion-android-open"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-content">
-                      <h4>
-                        <a href="product-details.html">PRODUCTS NAME HERE </a>
-                      </h4>
-                      <div class="product-price-wrapper">
-                        <span>$100.00</span>
-                        <span class="product-price-old">$120.00 </span>
-                      </div>
-                    </div>
+                    <%= render "products/best_product", best_product: best_product %>
                   </div>
                 <% end %>
               </div>
