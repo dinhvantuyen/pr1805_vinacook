@@ -32,11 +32,7 @@ class User < ApplicationRecord
     update_attribute :remember_digest, User.digest(remember_token)
   end
 
-<<<<<<< HEAD
   def authenticated? attribute, token
-=======
-  def authenticated?(attribute, token)
->>>>>>> 4e4a665... account_activation
     digest = send("#{attribute}_digest")
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password?(token)
@@ -47,13 +43,8 @@ class User < ApplicationRecord
   end
 
     def activate
-<<<<<<< HEAD
     update_attribute :activated,    true
     update_attribute :activated_at, Time.zone.now
-=======
-    update_attribute(:activated,    true)
-    update_attribute(:activated_at, Time.zone.now)
->>>>>>> 4e4a665... account_activation
   end
 
   def send_activation_email
