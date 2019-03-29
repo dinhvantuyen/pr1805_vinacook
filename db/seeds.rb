@@ -14,7 +14,6 @@ User.create!(name:  "dinhvantuyen",
              # admin: true,
              # activated: true,
              # activated_at: Time.zone.now
-             )
 Category.create!(name: "Canh")
 Category.create!(name: "Đồ nướng")
 Category.create!(name: "Lẩu")
@@ -38,3 +37,18 @@ Product.create!(name:  "Thit kho",
                sale_count: sale_count,
                description: description)
 end
+             phone: "0123456789",
+             role: :admin,
+             activated: true,
+             activated_at: Time.zone.now)
+
+User.create!(name:  "Duke",
+             email: "thuanduc.97@gmail.com",
+             password:              "123456",
+             password_confirmation: "123456",
+             address: "Hanoi",
+             phone: "0975224497",
+             role: :admin,
+             activated: true,
+             activated_at: Time.zone.now)
+

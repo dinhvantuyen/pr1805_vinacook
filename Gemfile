@@ -6,8 +6,8 @@ git_source(:github) do |repo_name|
 end
 
   gem "rails", "~> 5.1.6"
-  gem "will_paginate",           "3.1.6"
-  gem "bootstrap-will_paginate", "1.0.0"
+  gem "will_paginate"
+  gem "bootstrap-will_paginate"
   gem "faker"
   gem "bootstrap-sass"
   gem "font-awesome-rails"
@@ -25,6 +25,7 @@ end
   gem "mini_magick"
   gem "will_paginate"
   gem "bootstrap-will_paginate"
+  gem "letter_opener"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
