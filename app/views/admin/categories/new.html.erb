@@ -1,0 +1,21 @@
+<% provide :title, "Tạo mới chuyên mục" %>
+<section class="content-header">
+  <h1>Tạo mới chuyên mục</h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <%= form_for [:admin, @category] do |f| %>
+          <div class="box-body">
+            <%= f.label :name, "Tên nhãn hiệu" %>
+            <%= f.text_field :name, placeholder: "Nhập tên nhãn hiệu", class: "form-control" %>
+            <br>
+            <%= f.submit "Tạo nhãn hiệu", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+

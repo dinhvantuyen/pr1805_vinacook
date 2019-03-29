@@ -1,0 +1,24 @@
+<section class="content-header">
+  <h1>
+    Chinh sua
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <table>
+          <tr>
+            <th>Tên chuyên mục</th>
+            <th>Chỉnh sửa</th>
+            <th>Quay lại</th>
+          </tr>
+          <td><%= @category.name %></td>
+          <td><%= link_to "Chỉnh sửa", edit_admin_category_path %></td>
+          <td><%= link_to "Quay lại", admin_categories_path %></td>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+

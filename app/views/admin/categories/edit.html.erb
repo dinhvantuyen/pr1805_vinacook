@@ -1,0 +1,35 @@
+<% provide :title, "Chỉnh sửa thông tin" %>
+<section class="content-header">
+  <h1>
+    Chỉnh sửa
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="row">
+          <div class="form-group">
+            <%= form_for [:admin, @category] do |f| %>
+              <div class="form-content mg-tp20">
+                <label class="col-md-2 control-label"><%= f.label :name, "Tên chuyên mục" %>
+                  <span class="required">
+                   *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.text_field :name, placeholder: "Nhập tên chuyên mục", class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-content">
+                <div class="col-md-12">
+                  <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
