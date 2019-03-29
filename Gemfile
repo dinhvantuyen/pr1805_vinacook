@@ -23,8 +23,6 @@ end
   gem "adminlte-rails"
   gem "carrierwave"
   gem "mini_magick"
-  gem "will_paginate"
-  gem "bootstrap-will_paginate"
   gem "letter_opener"
 
 group :development, :test do
