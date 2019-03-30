@@ -6,7 +6,15 @@
       <% end %>
       <div class="product-action">
         <div class="pro-action-left">
-          <a title="Add To Cart" href="#"><i class="ion-android-cart"></i> Add Tto Cart</a>
+          <%#= link_to product_orders_path(product_id: product.id, quantity: "1"), title:"Add To Cart", method: :post do %>
+          <%= form_for @product_order do |f| %>
+            <%= f.hidden_field :product_id, value: product.id %>
+            <%= f.hidden_field :quantity, value: "1" %>
+            <!-- <i class="ion-android-cart"></i> Add To Cart -->
+            <%= f.submit "Add To Cart" do %>
+              <i class="ion-android-cart"></i>
+            <% end %>
+          <% end %>
         </div>
         <div class="pro-action-right">
           <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>

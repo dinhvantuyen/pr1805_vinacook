@@ -29,16 +29,15 @@ ActiveRecord::Schema.define(version: 20190330215041) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "subtotal"
     t.integer "code"
     t.integer "phone"
     t.string "email"
     t.string "name"
-    t.string "status"
     t.string "address"
-    t.integer "user_id"
+    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
