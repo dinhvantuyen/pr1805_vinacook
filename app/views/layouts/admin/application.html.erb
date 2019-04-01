@@ -11,13 +11,13 @@
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
     <%= render "layouts/admin/header" %>
-    <div class="messager">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %>"><%= message %></div>
-      <% end %>
-    </div>
     <%= render "layouts/admin/sidebar" %>
     <div class="content-wrapper">
+      <div class="messager">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      </div>
       <%= yield %>
     </div>
     <%= render "layouts/admin/footer" %>

@@ -1,0 +1,40 @@
+<section class="content-header">
+  <h1 class="admin-title">
+    Tất cả chuyên mục
+  </h1>
+  <div class="bnt-new">
+    <%= link_to "Tạo mới", new_admin_category_path %>
+  </div>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên chuyên mục</th>
+              <th>Hiển thị</th>
+              <th>Chỉnh sửa</th>
+              <th>Xóa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @category.each do |category| %>
+              <tr>
+                <td><%= category.id %></td>
+                <td><%= category.name %></td>
+                <td><%= link_to "Hiển thị", admin_category_path(category) %></td>
+                <td><%= link_to "Chỉnh sửa", edit_admin_category_path(category) %></td>
+                <td><%= link_to "Xóa", [:admin, category],
+                  data: { confirm: "Are you sure?" }, method: :delete %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= will_paginate @category %>
+      </div>
+    </div>
+  </div>
+</section>
