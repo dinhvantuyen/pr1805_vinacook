@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post "/signup",  to: "users#create"
   delete "/logout", to: "sessions#destroy"
 
+  resources :reviews, only: :create
   resources :products
   resources :users
   resources :account_activations, only: :edit
