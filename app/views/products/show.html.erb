@@ -108,7 +108,6 @@
     <div class="description-review-wrapper">
       <div class="description-review-topbar nav text-center">
         <a class="active" data-toggle="tab" href="#des-details1">Description</a>
-        <a data-toggle="tab" href="#des-details2">Tags</a>
         <a data-toggle="tab" href="#des-details3">Review</a>
       </div>
       <div class="tab-content description-review-bottom">
@@ -116,8 +115,6 @@
           <div class="product-description-wrapper">
             <p><%= @product.description %></p>
           </div>
-        </div>
-        <div id="des-details2" class="tab-pane">
           <div class="product-anotherinfo-wrapper">
             <ul>
               <li><span>Tags:</span></li>
@@ -151,29 +148,30 @@
           <div class="ratting-form-wrapper">
             <h3>Add your Comments :</h3>
             <div class="ratting-form">
-              <%# if logged_in? %>
-                <form action="#" controller="reviews" method="create">
+              <% if logged_in? %>
+                <%= form_for @review do |f| %>
+                  <%= f.hidden_field :product_id, value: params[:id] %>
                   <div class="star-box">
                     <h2>Rating:</h2>
-                    <div class="ratting-star">
-                      <i class="ion-star theme-color"></i>
-                      <i class="ion-star theme-color"></i>
-                      <i class="ion-star theme-color"></i>
-                      <i class="ion-star theme-color"></i>
-                      <i class="ion-star"></i>
+                    <div class="ratting-star ">
+                      <%= f.radio_button :rate, 1 %>
+                      <%= f.radio_button :rate, 2 %>
+                      <%= f.radio_button :rate, 3 %>
+                      <%= f.radio_button :rate, 4 %>
+                      <%= f.radio_button :rate, 5 %>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="rating-form-style form-submit">
-                        <textarea name="message" placeholder="Message"></textarea>
-                        <input type="submit" value="add review">
+                      <%= f.text_area :comment, placeholder: "Message" %>
+                      <%= f.submit "Add review" %>
                       </div>
                     </div>
                   </div>
-                </form>
-              <%# else %>
-                <!-- <div class="row">
+                <% end %>
+              <% else %>
+                <div class="row">
                   <div class="col-md-12">
                     <div class="rating-form-style form-submit">
                       <textarea name="message" placeholder="Message"></textarea>
@@ -181,9 +179,9 @@
                       <input type="submit" value="sign in" >
                       <% end %>
                     </div>
-                  </div> -->
+                  </div>
                 </div>
-              <%# end %>
+              <% end %>
             </div>
           </div>
         </div>
