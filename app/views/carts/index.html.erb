@@ -14,75 +14,61 @@
    <h3 class="page-title">Your cart items</h3>
    <div class="row">
      <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-       <form action="#">
-         <div class="table-content table-responsive">
-           <table>
-             <thead>
+       <div class="table-content table-responsive">
+         <table>
+           <thead>
+             <tr>
+               <th>Image</th>
+               <th>Product Name</th>
+               <th>Until Price</th>
+               <th>Qty</th>
+               <th>Subtotal</th>
+               <th>action</th>
+             </tr>
+           </thead>
+           <tbody>
+             <% current_order.product_orders.each do |product_order| %>
                <tr>
-                 <th>Image</th>
-                 <th>Product Name</th>
-                 <th>Until Price</th>
-                 <th>Qty</th>
-                 <th>Subtotal</th>
-                 <th>action</th>
-               </tr>
-             </thead>
-             <tbody>
-               <% current_order.product_orders.each do |product_order| %>
-                 <tr>
-                   <td class="product-thumbnail">
-                     <%= link_to product_order.product do %>
-                      <%= image_tag product_order.product.image_url || "cart/cart-1.jpg" %>
-                     <% end %>
-                   </td>
-                   <td class="product-name"><%= link_to product_order.product.name %></td>
-                   <td class="product-price-cart"><span class="amount">$<%= product_order.product.price %></span></td>
-                   <td class="product-quantity">
-                     <div class="cart-plus-minus">
-                      <div id="dec_button" class="dec qtybutton">
-                        <%= form_for product_order do |f| %>
-                          <%= hidden_field_tag :type, "dec" %>
-                          <%= f.submit "-" %>
-                        <% end %>
-                      </div>
-                       <input class="cart-plus-minus-box" type="text" name="qtybutton" value="<%= product_order.quantity %>">
-                      <div id="inc_button" class="inc qtybutton">
-                        <%= form_for product_order do |f| %>
-                          <%= hidden_field_tag :type, "inc" %>
-                          <%= f.submit "+" %>
-                        <% end %>
-                      </div>
+                 <td class="product-thumbnail">
+                   <%= link_to product_order.product do %>
+                    <%= image_tag product_order.product.image_url || "cart/cart-1.jpg" %>
+                   <% end %>
+                 </td>
+                 <td class="product-name"><%= link_to product_order.product.name %></td>
+                 <td class="product-price-cart"><span class="amount">$<%= product_order.product.price %></span></td>
+                 <td class="product-quantity">
+                   <div class="cart-plus-minus">
+                     <div class="dec qtybutton">-</div>
+                     <div id="product<%= product_order.id %>" class="quantity-form">
+                       <%= form_for product_order do |f| %>
+                       <%= f.text_field :quantity, class: "cart-plus-minus-box", value: product_order.quantity %>
+                       <% end %>
                      </div>
-                   </td>
-                   <td class="product-subtotal">$<%= product_order.product.price*product_order.quantity %>
-                   </td>
-                   <td class="product-remove">
-                     <%= link_to "carts/#{product_order.id}", method: :delete do %>
-                       <i class="fa fa-times"></i>
-                   </td>
-                 </tr>
-               <% end %>
-               <% end %>
-             </tbody>
-           </table>
-         </div>
-       </form>
+                     <div class="inc qtybutton">+</div>
+                   </div>
+                 </td>
+                 <td class="product-subtotal">$<%= product_order.product.price*product_order.quantity %>
+                 </td>
+                 <td class="product-remove">
+                   <%= link_to "carts/#{product_order.id}", method: :delete do %>
+                   <i class="fa fa-times"></i>
+                   <% end %>
+                 </td>
+               </tr>
+             <% end %>
+           </tbody>
+         </table>
+       </div>
        <div class="row">
          <div class="col-md-4 offset-md-8">
            <div class="grand-totall">
              <div class="title-wrap">
                <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
              </div>
-             <!-- <h5>Total products <span>$<%= current_order.subtotal %></span></h5> -->
              <div class="total-shipping">
-             <!--   <h5>Total shipping</h5>
-               <ul>
-                 <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                 <li><input type="checkbox"> Express <span>$30.00</span></li>
-               </ul> -->
-             <h4 class="grand-totall-title">Grand Total  <span>$<%= current_order.subtotal %></span></h4>
+             <h4 class="grand-totall-title">Grand Total  <span class="grand-total">$<%= current_order.subtotal %></span></h4>
              </div>
-             <a href="checkout">Proceed to Checkout</a>
+             <a href="checkouts">Proceed to Checkout</a>
            </div>
          </div>
        </div>

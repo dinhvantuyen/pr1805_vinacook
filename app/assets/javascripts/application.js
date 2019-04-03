@@ -22,4 +22,5 @@
 //= require ./lib/owl.carousel.min
 //= require ./lib/plugins
 //= require ./lib/popper
+//= require ./lib/cart
 

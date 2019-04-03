@@ -1,4 +1,5 @@
 class ProductOrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
     @product_orders = current_order.product_orders
   end
@@ -6,22 +7,27 @@ class ProductOrdersController < ApplicationController
   def create
     @product_order = ProductOrder.new
     @order = current_order
-    @product_order = @order.product_orders.build product_order_params
+    product_order = @order.product_orders.find_by product_id: params[:product_id]
+    if product_order.present?
+      product_order.quantity += 1
+      product_order.update_attribute :quantity, product_order.quantity
+    else
+      @product_order = @order.product_orders.build product_order_params
+    end
     if @order.save!
       session[:order_id] = @order.id
+    end
+    respond_to do |format|
+      format.js
     end
   end
 
   def update
     @product_order = ProductOrder.find_by id: params[:id]
-    quantity = @product_order.quantity
-    if params[:type] == "inc"
-      quantity.present? ? quantity += 1 : 0
-    else
-      quantity > 0 ? quantity -= 1 : 0
+    @product_order.update product_order_params
+    respond_to do |format|
+      format.js
     end
-    @product_order.update_attribute :quantity, quantity
-    redirect_to carts_path
   end
 
   def destroy
