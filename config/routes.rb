@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   get  "/signup",  to: "users#new"
   post "/signup",  to: "users#create"
   delete "/logout", to: "sessions#destroy"
-  get "/cart-page", to: "carts#new"
 
+  resources :carts, only: [:index, :destroy]
   resources :reviews, only: :create
   resources :product_orders
   resources :products

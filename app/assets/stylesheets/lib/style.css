@@ -5351,3 +5351,9 @@ input.search-index:focus{
   color: #fff;
   background-color: #ca3432;
 }
+.dec.qtybutton input, .inc.qtybutton input{
+  border: none;
+  background: none;
+  height: auto;
+  padding: 0;
+}
