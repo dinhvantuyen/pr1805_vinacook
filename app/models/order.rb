@@ -1,4 +1,9 @@
 class Order < ApplicationRecord
   has_many :product_orders
-  belongs_to :user
+  enum status: [:In_Progress, :Placed, :Shipped, :Cancelled]
+
+  def subtotal
+    product_orders.collect{ |po| po.valid? ? (po.quantity*po.product.price) : 0}.sum
+  end
+
 end

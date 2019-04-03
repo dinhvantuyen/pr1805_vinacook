@@ -54,3 +54,12 @@ end
                user_id: user_id,
                product_id: product_id)
 end
+User.create!(name:  "Duke",
+             email: "thuanduc.97@gmail.com",
+             password:              "123456",
+             password_confirmation: "123456",
+             address: "Hanoi",
+             phone: "0975224497",
+             role: :admin,
+             activated: true,
+             activated_at: Time.zone.now)
