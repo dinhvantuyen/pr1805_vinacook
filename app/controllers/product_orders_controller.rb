@@ -1,4 +1,7 @@
 class ProductOrdersController < ApplicationController
+  def index
+    @product_orders = current_order.product_orders
+  end
 
   def create
     @product_order = ProductOrder.new
@@ -7,6 +10,18 @@ class ProductOrdersController < ApplicationController
     if @order.save!
       session[:order_id] = @order.id
     end
+  end
+
+  def update
+    @product_order = ProductOrder.find_by id: params[:id]
+    quantity = @product_order.quantity
+    if params[:type] == "inc"
+      quantity.present? ? quantity += 1 : 0
+    else
+      quantity > 0 ? quantity -= 1 : 0
+    end
+    @product_order.update_attribute :quantity, quantity
+    redirect_to carts_path
   end
 
   def destroy
