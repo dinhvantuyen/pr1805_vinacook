@@ -17,7 +17,7 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #dcdcdc;
 }
 span.fa.fa-fw.fa-eye.field-icon.toggle-password{
   float: right;
@@ -33,3 +33,40 @@ span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash{
   position: relative;
   z-index: 2;
 }
+.has-feedback{
+  position: relative;
+}
+.form-control-feedback{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  display: block;
+  width: 34px !important;
+  height: 34px !important;
+  line-height: 34px;
+  text-align: center;
+  pointer-events: none;
+}
+.icheckbox_minimal input[type=checkbox]{
+  opacity: 1 !important;
+}
+.image_product_admin{
+  width: 100px;
+  height: 100px;
+}
+ul.select-category{
+  padding: 0;
+  margin: 0;
+}
+.select-category li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.select-category input[type="checkbox"]{
+  opacity: 1 !important;
+}
+ul.select-category label{
+      padding: 0px 0 0px 20px;
+Ư

@@ -69,4 +69,8 @@ module SessionsHelper
     redirect_to root_url
   end
 
+  def login_user
+    redirect_to root_path if logged_in?
+  end
+
 end

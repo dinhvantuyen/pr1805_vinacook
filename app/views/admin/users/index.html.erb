@@ -1,6 +1,6 @@
 <section class="content-header">
   <h1 class="admin-title">
-    Tat ca user
+    Tất cả user
   </h1>
   <div class="bnt-new">
     <%=link_to "Thêm mới", new_admin_user_path %>
@@ -15,10 +15,10 @@
             <tr>
               <th>ID</th>
               <th>Tên user</th>
-              <th>Quyen han</th>
-              <th>Phan quyen</th>
-              <th>Thong tin tai khoan</th>
-              <th>Xoa tai khoan</th>
+              <th>Quyền hạn</th>
+              <th>Phân quyền</th>
+              <th>Thông tin tài khoản</th>
+              <th>Xóa tài khoản</th>
             </tr>
           </thead>
           <tbody>
@@ -27,10 +27,12 @@
                 <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.role %></td>
-                <th><%=link_to "edit", edit_admin_user_path(user) %></th>
-                <th><%=link_to "show", admin_user_path(user) %></th>
-                <th><%= link_to "Destroy", [:admin, user],
-                  data: { confirm: "Are you sure?" }, method: :delete %></th>
+                <th><%=link_to "Chỉnh sửa", edit_admin_user_path(user) %></th>
+                <th><%=link_to "Hiển thị", admin_user_path(user) %></th>
+                <% unless verify_admin?(user) %>
+                  <th><%= link_to "Xóa", [:admin, user],
+                    data: { confirm: "Are you sure?" }, method: :delete %></th>
+                <% end %>
               </tr>
             <% end %>
           </tbody>

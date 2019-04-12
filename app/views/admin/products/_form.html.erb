@@ -1,4 +1,5 @@
 <%= form_for [:admin, @product] do |f| %>
+  <%= render "shared/admin/error_messages", object: f.object %>
   <div class="box-body pad">
     <div class="form-group">
       <div class="form-content">
@@ -68,7 +69,15 @@
           </span>
         </label>
         <div class="col-md-10 mg-10">
-          <%= f.select :category_ids, @show_categories, {}, multiple: true, class: "form-control" %>
+          <%= f.collection_check_boxes :category_ids,
+            Category.all, :id, :name do |category| %>
+            <ul class="select-category">
+              <li>
+                <%= category.check_box %>
+                <%= category.label %>
+              </li>
+            </ul>
+          <% end %>
         </div>
       </div>
       <%= f.submit "Thêm mới", class: "btn btn-success" %>

@@ -19,14 +19,14 @@ Rails.application.routes.draw do
   resource :searchs
 
   namespace :admin do
+    get "/login", to: "login#new"
+    post "/login", to: "login#create"
+    delete "/logout", to: "login#destroy"
     root "dashboard#index"
     get "dashboard/index"
     resources :products
     resources :categories
     resources :users
-  end
-  resources :users do
-    resources :orders
   end
 
 end
