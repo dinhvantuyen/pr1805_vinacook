@@ -6,4 +6,8 @@ class Order < ApplicationRecord
     product_orders.collect{ |po| po.valid? ? (po.quantity*po.product.price) : 0}.sum
   end
 
+  def total_quantity
+    product_orders.collect{ |po| po.valid? ? po.quantity : 0}.sum
+  end
+
 end

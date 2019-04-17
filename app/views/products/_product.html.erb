@@ -11,7 +11,7 @@
             <%= f.hidden_field :product_id, value: product.id %>
             <%= f.hidden_field :quantity, value: "1" %>
             <!-- <i class="ion-android-cart"></i> Add To Cart -->
-            <%= f.submit "Add To Cart" do %>
+            <%= f.submit "Add To Cart", id: "cart-btn" do %>
               <i class="ion-android-cart"></i>
             <% end %>
           <% end %>
