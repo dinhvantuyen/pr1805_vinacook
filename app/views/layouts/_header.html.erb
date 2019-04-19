@@ -45,9 +45,9 @@
       <div class="row">
         <div class="col-lg-3 col-md-4 col-12 col-sm-4">
           <div class="logo">
-            <a href="index.html">
+            <%= link_to root_url do %>
               <%= image_tag "logo/logo.png" %>
-            </a>
+            <% end %>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-12 col-sm-4">
@@ -96,7 +96,7 @@
               </a>
             </div>
             <div class="header-cart">
-              <%= link_to "#" do %>
+              <%= link_to "" do %>
                 <div class="header-icon-style">
                   <i class="icon-handbag icons"></i>
                   <span class="count-style"><%= current_order.total_quantity %></span>
