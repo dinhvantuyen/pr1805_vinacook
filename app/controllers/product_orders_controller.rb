@@ -7,7 +7,7 @@ class ProductOrdersController < ApplicationController
   def create
     @product_order = ProductOrder.new
     @order = current_order
-    product_order = @order.product_orders.find_by product_id: params[:product_id]
+    product_order = @order.product_orders.find_by product_id: params[:product_order][:product_id]
     if product_order.present?
       product_order.quantity += 1
       product_order.update_attribute :quantity, product_order.quantity

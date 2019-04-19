@@ -36,7 +36,6 @@ $(document).on('turbolinks:load',function(){
     var $form = $input.closest("form");
     var method = "PUT";
     var action = $form.attr('action')
-    // var id = $(".quantity-form form").find("#id").val();
     $.ajax({
       method: "PUT",
       url: action,
@@ -49,15 +48,18 @@ $(document).on('turbolinks:load',function(){
 $(document).on("turbolinks:load",function(){
   $("input#cart-btn").on("click",function(event){
     event.preventDefault();
+    var $input
     var action = $(this).parent().attr("action");
     var method = "POST";
 
     var product_id = $(this).parent().find("#product_order_product_id").val();
     var quantity = $(this).parent().find("#product_order_quantity").val();
+    $input = $(this).parent().find("#product_order_product_id");
+    var $form = $input.closest("form");
     $.ajax({
       method: method,
       url: action,
-      data: {product_id: product_id, quantity: quantity},
+      data: $form.serialize(),
       dataType: "script",
     })
   });
