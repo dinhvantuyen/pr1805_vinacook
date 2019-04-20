@@ -1,0 +1,81 @@
+<section class="content-header">
+  <h1>
+    Tao moi nguoi dung
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <%= form_for [:admin, @user] do |f| %>
+          <div class="box-body pad">
+            <div class="form-group">
+              <div class="form-content">
+                <label class="col-md-2 control-label"> Tên nguoi dung:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.text_field :name, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-content">
+                <label class="col-md-2 control-label"> Dia chi:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.text_field :address, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-content">
+                <label class="col-md-2 control-label"> Email:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.email_field :email, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-content">
+                <label class="col-md-2 control-label"> So dien thoai:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.text_field :phone, class: "form-control" %>
+                </div>
+              </div>
+              <div class="form-content">
+                <label class="col-md-2 control-label"> Password:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.text_field :password, id: "password-field", class: "form-control" %>
+                  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                </div>
+              </div>
+              <div class="form-content">
+                <label class="col-md-2 control-label"> Quyen han:
+                  <span class="required">
+                    *
+                  </span>
+                </label>
+                <div class="col-md-10 mg-10">
+                  <%= f.select :role, User.roles.keys, class: "form-control" %>
+                </div>
+              </div>
+              <%= f.submit "Thêm mới", class: "btn btn-success" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

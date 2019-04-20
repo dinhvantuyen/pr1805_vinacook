@@ -15,3 +15,4 @@
 //= require rails-ujs
 //= require turbolinks
 //= require admin-lte
+//= require ./lib/custom
