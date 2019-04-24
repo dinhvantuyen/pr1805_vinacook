@@ -2,7 +2,6 @@ User.create!(name:  "dinhvantuyen",
              email: "dinhtuyen.dgt@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
-             address: "Hanoi",
              phone: "0123456789")
 
 Category.create!(name: "Canh")
@@ -58,7 +57,6 @@ User.create!(name:  "Duke",
              email: "thuanduc.97@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
-             address: "Hanoi",
              phone: "0975224497",
              role: :admin,
              activated: true,

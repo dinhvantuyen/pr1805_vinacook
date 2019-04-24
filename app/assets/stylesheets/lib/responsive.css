@@ -833,3 +833,7 @@
     padding: 30px 26px 33px;
   }
 }
+
+.checkout-area.pb-80.pt-100{
+  padding-top: 50px;
+}

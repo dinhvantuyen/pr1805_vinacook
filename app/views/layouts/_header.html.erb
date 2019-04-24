@@ -66,7 +66,7 @@
           <div class="header-middle-right f-right">
             <div class="header-login">
               <% if logged_in? %>
-                <%= link_to "logout" do %>
+                <%= link_to logout_path do %>
                   <div class="header-icon-style">
                     <i class="icon-user icons"></i>
                   </div>
@@ -75,7 +75,7 @@
                   </div>
                 <% end %>
               <% else %>
-                <%= link_to "login" do %>
+                <%= link_to login_path do %>
                   <div class="header-icon-style">
                     <i class="icon-user icons"></i>
                   </div>
