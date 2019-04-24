@@ -1,18 +1,16 @@
-class SessionsController < ApplicationController
-  before_action :log_in_user, only: [:new, :create]
+class LoginCheckoutsController < ApplicationController
+  before_action :check_login, only: [:new, :create]
 
   def new
     @user = User.new
   end
 
   def create
-    @user = User.new
     user = User.find_by email: params[:session][:email]
     if user && user.authenticate(params[:session][:password])
       if user.activated?
         log_in user
-        params[:session][:remember_me] == "on" ? remember(user) : forget(user)
-        redirect_to user
+        redirect_to new_checkout_path
       else
         message  = "Account not activated. "
         message += "Check your email for the activation link."
@@ -25,14 +23,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
-    log_out if logged_in?
-    redirect_to root_url
-  end
   private
 
-  def log_in_user
+  def check_login
     return unless logged_in?
-    redirect_to current_user
+    redirect_to new_checkout_path
   end
+
 end

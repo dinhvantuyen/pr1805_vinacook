@@ -1,0 +1,113 @@
+<div class="row">
+  <div class="col-lg-10 offset-1">
+    <div class="checkout-wrapper">
+      <div id="faq" class="pan el-group">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="billing-information-wrapper">
+              <div class="row">
+                <% if logged_in? %>
+                  <% if current_user.addresses.present? %>
+                    <% current_user.addresses.each do |address| %>
+                      <div class="col-md-6 col-lg-6">
+                        <div class="single-ship">
+                          <input type="radio" name="address" value="address" checked="">
+                          <label id="default-address">Using this address</label>
+                        </div>
+                        <div class="shipping-info-2">
+                          <span>Name: <%= address.name %></span>
+                          <span>Email: <%= address.email %></span>
+                          <span>Address: <%= address.address %></span>
+                          <span>City: <%= address.city %></span>
+                          <span>Country: <%= address.country %></span>
+                          <span>Phone: <%= address.phone %></span>
+                          <div class="billing-back-btn">
+                            <div class="billing-btn">
+                              <button type="submit" id="checkout-next1">Continue</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <% if session[:address].present? %>
+                    <div class="col-md-6 col-lg-6">
+                      <div class="single-ship">
+                        <input type="radio" name="address" value="address" checked="">
+                        <label id="default-address">Using this address</label>
+                      </div>
+                      <div class="shipping-info-2">
+                        <span>Name: <%= session[:address]["name"] %></span>
+                        <span>Email: <%= session[:address]["email"] %></span>
+                        <span>Address: <%= session[:address]["address"] %></span>
+                        <span>City: <%= session[:address]["city"] %></span>
+                        <span>Country: <%= session[:address]["country"] %></span>
+                        <span>Phone: <%= session[:address]["phone"] %></span>
+                        <div class="billing-back-btn">
+                          <div class="billing-btn">
+                            <button type="submit" id="checkout-next1">Continue</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="single-ship">
+                <input type="radio" name="address" value="address" checked="">
+                <label id="add-new-address">Add new address</label>
+              </div>
+              <%= form_for @address, url: {controller: :checkouts, action: :create}, method: :post, remote: true do |f| %>
+                <div class="row">
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :name, "Name" %>
+                      <%= f.text_field :name %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :email, "Email" %>
+                      <%= f.email_field :email %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :address, "Address" %>
+                      <%= f.text_field :address %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :city, "City" %>
+                      <%= f.text_field :city %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :country, "Country" %>
+                      <%= f.text_field :country %>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6">
+                    <div class="billing-info">
+                      <%= f.label :phone, "Phone" %>
+                      <%= f.text_field :phone %>
+                    </div>
+                  </div>
+                  <div class="button-box">
+                    <%= f.button "Add", id: "checkout-next1" %>
+                    <%= link_to new_login_checkout_path do %>
+                      <button type="submit" id="checkout-back1" >Back</button>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

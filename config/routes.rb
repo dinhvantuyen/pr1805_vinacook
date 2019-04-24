@@ -5,15 +5,18 @@ Rails.application.routes.draw do
   get  "/signup",  to: "users#new"
   post "/signup",  to: "users#create"
   delete "/logout", to: "sessions#destroy"
-  get "/checkouts", to: "checkouts#index"
+  get "/logout", to: "sessions#destroy"
+  get "/checkouts/review", to: "checkouts#edit"
 
   resources :carts, only: [:index, :destroy]
-  resources :reviews, only: :create
+  resources :reviews, except: :update
   resources :product_orders
   resources :products
   resources :users
   resources :account_activations, only: :edit
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :login_checkouts
+  resources :checkouts
 
   namespace :admin do
     root "dashboard#index"

@@ -1,0 +1,56 @@
+<div class="rattings-wrapper">
+  <% @product.reviews.each do |review| %>
+    <div class="sin-rattings">
+      <div class="star-author-all">
+        <div class="ratting-star f-left">
+          <% (1..review.rate).each do |i|  %>
+            <i class="ion-star theme-color"></i>
+          <% end %>
+          <span>(<%= review.rate %>)</span>
+        </div>
+        <div class="ratting-author f-right">
+          <h3><%= review.user.name %></h3>
+          <span><%= review.created_at.strftime("%H:%M") %></span>
+          <span><%= review.created_at.strftime("%d/%m/%Y") %></span>
+        </div>
+      </div>
+      <p><%= review.comment %></p>
+    </div>
+  <% end %>
+</div>
+<div class="ratting-form-wrapper">
+  <h3>Add your Comments :</h3>
+  <div class="ratting-form">
+    <% if logged_in? %>
+      <%= form_for @review, url: {controller: :reviews, action: :create}, method: :post, remote: true do |f| %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <div class="stars">
+          <h2>Rating:</h2>
+          <% (1..5).reverse_each do |i| %>
+            <%= f.radio_button :rate, i, class: "star star-#{i}", id: "star-#{i}" %>
+            <label class="star star-<%= i %>" for="star-<%= i %>"></label>
+          <% end %>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="rating-form-style form-submit">
+            <%= f.text_area :comment, placeholder: "Message" %>
+            <%= f.submit "Add review", id: "add-review2" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="rating-form-style form-submit">
+            <textarea name="message" placeholder="Message"></textarea>
+            <%= link_to "/login" do %>
+            <input type="submit" value="sign in" >
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
