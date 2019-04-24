@@ -1,0 +1,75 @@
+<% provide :title, "Chỉnh sửa thông tin" %>
+  <section class="content-header">
+    <h1>
+      Chỉnh sửa thong tin nguoi dung
+    </h1>
+  </section>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="row">
+            <div class="form-group">
+              <%= form_for [:admin, @user] do |f| %>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"><%= f.label :name, "Tên user" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :name, placeholder: "Nhập tên user", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :address, "Dia chi" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :address, placeholder: "Dia chi", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :email, "Email" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content cleafix">
+                  <label class="col-md-2 control-label"><%= f.label :phone, "So dien thoai" %>
+                    <span class="required">
+                     *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.text_field :phone, placeholder: "So dien thoai", class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content">
+                  <label class="col-md-2 control-label"> Quyen han:
+                    <span class="required">
+                      *
+                    </span>
+                  </label>
+                  <div class="col-md-10 mg-10">
+                    <%= f.select :role, User.roles.keys, class: "form-control" %>
+                  </div>
+                </div>
+                <div class="form-content">
+                  <div class="col-md-12">
+                    <%= f.submit "Cập nhật", class: "btn btn-primary" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
