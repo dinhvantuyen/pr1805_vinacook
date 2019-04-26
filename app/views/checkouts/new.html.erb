@@ -10,46 +10,57 @@
                   <% if current_user.addresses.present? %>
                     <% current_user.addresses.each do |address| %>
                       <div class="col-md-6 col-lg-6">
-                        <div class="single-ship">
-                          <input type="radio" name="address" value="address" checked="">
-                          <label id="default-address">Using this address</label>
-                        </div>
-                        <div class="shipping-info-2">
-                          <span>Name: <%= address.name %></span>
-                          <span>Email: <%= address.email %></span>
-                          <span>Address: <%= address.address %></span>
-                          <span>City: <%= address.city %></span>
-                          <span>Country: <%= address.country %></span>
-                          <span>Phone: <%= address.phone %></span>
-                          <div class="billing-back-btn">
-                            <div class="billing-btn">
-                              <button type="submit" id="checkout-next1">Continue</button>
+                        <%= form_tag("/checkout", method: :post) do %>
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                          <div class="single-ship">
+                            <input type="radio" name="address" value="address" checked="">
+                            <label id="default-address">Using this address</label>
+                          </div>
+                          <div class="shipping-info-2">
+                            <span>Name: <span id="address-name"><%= address.name %></span></span>
+                            <span>Email: <span id="address-email"><%= address.email %></span></span>
+                            <span>Address: <span id="address-address"><%= address.address %></span></span>
+                            <span>City: <span id="address-city"><%= address.city %></span></span>
+                            <span>Country: <span id="address-country"><%= address.country %></span></span>
+                            <span>Phone: <span id="address-phone"><%= address.phone %></span></span>
+                            <div class="billing-back-btn">
+                              <div class="billing-btn">
+                                <%= button_tag "Select", id:"checkout-next1" %>
+                              </div>
+                              <%= link_to address_path(:address_id => address.id), method: :patch do %>
+                                <div class="billing-btn">
+                                    <button type="submit" id="checkout-next1">DELETE</button>
+                                </div>
+                              <% end %>
                             </div>
                           </div>
-                        </div>
+                        <% end %>
                       </div>
                     <% end %>
                   <% end %>
                 <% else %>
                   <% if session[:address].present? %>
                     <div class="col-md-6 col-lg-6">
-                      <div class="single-ship">
-                        <input type="radio" name="address" value="address" checked="">
-                        <label id="default-address">Using this address</label>
-                      </div>
-                      <div class="shipping-info-2">
-                        <span>Name: <%= session[:address]["name"] %></span>
-                        <span>Email: <%= session[:address]["email"] %></span>
-                        <span>Address: <%= session[:address]["address"] %></span>
-                        <span>City: <%= session[:address]["city"] %></span>
-                        <span>Country: <%= session[:address]["country"] %></span>
-                        <span>Phone: <%= session[:address]["phone"] %></span>
-                        <div class="billing-back-btn">
-                          <div class="billing-btn">
-                            <button type="submit" id="checkout-next1">Continue</button>
+                      <%= form_tag("/checkout", method: :post) do %>
+                        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                        <div class="single-ship">
+                          <input type="radio" name="address" value="address" checked="">
+                          <label id="default-address">Using this address</label>
+                        </div>
+                        <div class="shipping-info-2">
+                          <span>Name: <span id="address-name-1"><%= session[:address]["name"] %></span></span>
+                          <span>Email: <span id="address-email-1"><%= session[:address]["email"] %></span></span>
+                          <span>Address: <span id="address-address-1"><%= session[:address]["address"] %></span></span>
+                          <span>City: <span id="address-city-1"><%= session[:address]["city"] %></span></span>
+                          <span>Country: <span id="address-country-1"><%= session[:address]["country"] %></span></span>
+                          <span>Phone: <span id="address-phone-1"><%= session[:address]["phone"] %></span></span>
+                          <div class="billing-back-btn">
+                            <div class="billing-btn">
+                              <%= button_tag "Select", id:"checkout-next2" %>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      <% end %>
                     </div>
                   <% end %>
                 <% end %>
@@ -97,7 +108,7 @@
                     </div>
                   </div>
                   <div class="button-box">
-                    <%= f.button "Add", id: "checkout-next1" %>
+                    <%= f.button "Add", id:"checkout-next3" %>
                     <%= link_to new_login_checkout_path do %>
                       <button type="submit" id="checkout-back1" >Back</button>
                     <% end %>
