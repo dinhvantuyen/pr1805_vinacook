@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
-  validates :phone, presence:true, length: {minimum: 10, maximum: 11}, allow_nil: true
+  validates :phone, presence:true, allow_nil: true
 
   class << self
 

@@ -4257,7 +4257,7 @@ h5.panel-title span {
   font-size: 12px;
   font-weight: 500;
   line-height: 1;
-  padding: 17px 35px;
+  padding: 17px 12px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all .3s ease 0s;
@@ -4268,6 +4268,25 @@ h5.panel-title span {
   background-color: #e02c2b;
   color: #fff;
 }
+.checkout-btn > button {
+  background-color: #f2f2f2;
+  border: medium none;
+  border-radius: 3px;
+  color: #242424;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 17px 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all .3s ease 0s;
+}
+.checkout-btn > button:hover {
+  background-color: #e02c2b;
+  color: #fff;
+}
+
 .checkout-progress > h4 {
   background-color: #f9f9f9;
   border-bottom: 1px solid #ebebeb;
@@ -4346,6 +4365,11 @@ h5.panel-title span {
   margin-top: 20px;
 }
 .billing-back-btn {
+  display: flex;
+  /*justify-content: space-between;*/
+  margin-top: 26px;
+}
+.checkout-back-btn {
   display: flex;
   justify-content: space-between;
   margin-top: 26px;
@@ -4438,10 +4462,22 @@ h5.panel-title span {
   letter-spacing: 0.2px;
   margin-top: 10px;
 }
+.checkout-back-btn>span {
+  color: #454545;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  margin-top: 10px;
+}
 .billing-back-btn>span a {
   color: #e02c2b;
 }
+.checkout-back-btn>span a {
+  color: #e02c2b;
+}
 .billing-back-btn>span a:hover {
+  text-decoration: underline;
+}
+.checkout-back-btn>span a:hover {
   text-decoration: underline;
 }
 .edit-address > a {
@@ -5410,6 +5446,10 @@ button#checkout-next1 {
   margin-left: 14px;
 }
 
+button#checkout-next3 {
+  margin-left: 15px;
+}
+
 #panel-body-row {
   padding: 15px;
 }
@@ -5417,4 +5457,35 @@ button#checkout-next1 {
 #checkout-back1 {
   margin-left: 685px;
   margin-right: 0px;
+}
+
+#addreview1 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
+}
+#addreview2 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
+}
+#addreview3 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
+}
+#addreview4 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
+}
+#addreview5 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
+}
+#addreview6 {
+  text-align: left;
+  padding: 6px, 5px, 2px;
+  font-size: 13.5px;
 }

@@ -1,5 +1,6 @@
 class LoginCheckoutsController < ApplicationController
   before_action :check_login, only: [:new, :create]
+  before_action :checkout_order, only: [:new, :create]
 
   def new
     @user = User.new

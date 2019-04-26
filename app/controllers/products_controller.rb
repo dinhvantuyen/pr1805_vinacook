@@ -7,4 +7,5 @@ class ProductsController < ApplicationController
     @review = Review.new
     @avg_rate = @product.reviews.average(:rate)&.round(2) || 0
   end
+
 end

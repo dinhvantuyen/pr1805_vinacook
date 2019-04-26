@@ -1,0 +1,84 @@
+<div class="order-review-wrapper">
+  <div class="order-review">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="width-1">Product Name</th>
+            <th class="width-2">Price</th>
+            <th class="width-3">Qty</th>
+            <th class="width-4">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_order.product_orders.each do |product_order| %>
+            <tr>
+              <td>
+                <div class="o-pro-dec">
+                  <p><%= product_order.product.name %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-price">
+                  <p>$<%= product_order.product.price  %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-qty">
+                  <p><%= product_order.quantity %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-subtotal">
+                  <p>$ <%= product_order.product.price*product_order.quantity %></p>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1" id="addreview1">Name: <%= session[:address_review]["name"] %></td>
+            <td colspan="2">Subtotal </td>
+            <td colspan="1">$<%= current_order.subtotal %></td>
+          </tr>
+          <tr class="tr-f">
+            <td colspan="1" id="addreview2">Email: <%= session[:address_review]["email"] %> </td>
+            <td colspan="2">Shipping & Handling (Flat Rate - Fixed</td>
+            <td colspan="1">$45</td>
+          </tr>
+          <tr>
+            <td colspan="1" id="addreview3">Address: <%= session[:address_review]["address"] %> </td>
+            <td colspan="2">Grand Total</td>
+            <td colspan="1">$<%= current_order.subtotal + 45 %></td>
+          </tr>
+          <tr>
+            <td colspan="4" id="addreview4">City: <%= session[:address_review]["city"] %></td>
+          </tr>
+          <tr>
+            <td colspan="4" id="addreview5">Country: <%= session[:address_review]["country"] %></td>
+          </tr><tr>
+            <td colspan="4" id="addreview6">Phone: <%= session[:address_review]["phone"] %></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div class="checkout-back-btn">
+      <%= link_to new_checkout_path do %>
+        <div class="checkout-btn">
+          <button type="submit">Edit Address</button>
+        </div>
+      <% end %>
+      <%= link_to carts_path do %>
+        <div class="checkout-btn">
+          <button type="submit">Edit Cart</button>
+        </div>
+      <% end %>
+      <%= link_to orders_path, method: :patch do %>
+        <div class="checkout-btn">
+          <button type="submit">Complete</button>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

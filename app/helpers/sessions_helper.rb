@@ -37,4 +37,9 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def checkout_order
+    return unless current_order.product_orders.empty?
+    redirect_to root_url
+  end
+
 end

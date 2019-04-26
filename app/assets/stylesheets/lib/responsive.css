@@ -837,3 +837,7 @@
 .checkout-area.pb-80.pt-100{
   padding-top: 50px;
 }
+
+.checkout-btn > button {
+  padding: 17px 25px;
+}
