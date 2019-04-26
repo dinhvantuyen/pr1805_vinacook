@@ -52,14 +52,14 @@
         </div>
         <div class="col-lg-4 col-md-4 col-12 col-sm-4">
           <div class="search-box">
-            <form>
+            <%= form_tag searchs_path do %>
               <div class="input-group-search">
-                <input class="search-index" placeholder="Tìm kiếm..." aria-label="Tìm kiếm..." value="">
+                <%= text_field_tag :search,"", placeholder:"Tìm kiếm", class: "search-index" %>
                 <div class="input-group-append">
-                  <button class="btn search-button-index">Tìm kiếm</button>
+                  <%= button_tag "Tìm kiếm", class: "btn search-button-index" %>
                 </div>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
         <div class="col-lg-5 col-md-4 col-12 col-sm-4">
@@ -96,7 +96,7 @@
               </a>
             </div>
             <div class="header-cart">
-              <%= link_to "" do %>
+              <%= link_to "", class: "cart-btn" do %>
                 <div class="header-icon-style">
                   <i class="icon-handbag icons"></i>
                   <span class="count-style"><%= current_order.total_quantity %></span>
@@ -153,36 +153,21 @@
                 <li class="top-hover">
                   <%= link_to "home", root_url %>
                 </li>
-                <li><a href="contact.html">Box nhẹ nhàng</a></li>
-                <li><a href="contact.html">Box gia đình</a></li>
-                <li class="top-hover"><a href="blog-rightsidebar.html">WEEK <i class="ion-chevron-down"></i></a>
+                <li><a href="">Box nhẹ nhàng</a></li>
+                <li><a href="">Box gia đình</a></li>
+                <li class="top-hover"><a href="">WEEK <i class="ion-chevron-down"></i></a>
                   <ul class="submenu">
-                    <li><a href="blog.html">Monday</a></li>
-                    <li><a href="blog-rightsidebar.html">Tuesday</a></li>
-                    <li><a href="blog-details.html">Wednesday</a></li>
-                    <li><a href="blog-details-gallery.html">Thursday</a></li>
-                    <li><a href="blog-details-video.html">Friday</a></li>
-                    <li><a href="blog-details-video.html">Saturday</a></li>
-                    <li><a href="blog-details-video.html">Sunday</a></li>
+                    <li><a href="">Monday</a></li>
+                    <li><a href="">Tuesday</a></li>
+                    <li><a href="">Wednesday</a></li>
+                    <li><a href="">Thursday</a></li>
+                    <li><a href="">Friday</a></li>
+                    <li><a href="">Saturday</a></li>
+                    <li><a href="">Sunday</a></li>
                   </ul>
                 </li>
-                <!-- <li class="top-hover"><a href="#">pages <i class="ion-chevron-down"></i></a>
-                  <ul class="submenu">
-                    <li><a href="about-us.html">about us </a></li>
-                    <li><a href="shop.html">shop Grid</a></li>
-                    <li><a href="shop-list.html">shop list</a></li>
-                    <li><a href="product-details.html">product details</a></li>
-                    <li><a href="cart-page.html">cart page</a></li>
-                    <li><a href="checkout.html">checkout</a></li>
-                    <li><a href="wishlist.html">wishlist</a></li>
-                    <li><a href="my-account">my account</a></li>
-                    <li><a href="login">login / register</a></li>
-                    <li><a href="contact.html">contact</a></li>
-                    <li><a href="testimonial.html">Testimonials</a></li>
-                  </ul>
-                </li> -->
-                <li><a href="about-us.html">about</a></li>
-                <li><a href="contact.html">contact us</a></li>
+                <li><%= link_to "About", "#" %></li>
+                <li><%= link_to "Contact Us", "#" %></li>
               </ul>
             </nav>
           </div>
