@@ -1,7 +1,9 @@
 class Admin::ProductsController < Admin::BaseController
   before_action :load_product, except: [:index, :new, :create]
   def index
-    @products = Product.paginate page: params[:page], per_page: 25
+    @products = Product.all
+    @products = @products.search_name params[:search_name] if params[:search_name].present?
+    @products = @products.paginate page: params[:page], per_page: 25
   end
 
   def new
