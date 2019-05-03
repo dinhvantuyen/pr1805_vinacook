@@ -3,6 +3,8 @@ class Admin::ProductsController < Admin::BaseController
   def index
     @products = Product.all
     @products = @products.search_name params[:search_name] if params[:search_name].present?
+    @categories_for_search = Category.pluck :name, :id
+    @products = @products.search_product_category params[:category_id] if params[:category_id].present?
     @products = @products.paginate page: params[:page], per_page: 25
   end
 
