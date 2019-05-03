@@ -15,13 +15,13 @@
 //= require ./lib/vendor/modernizr-2.8.3.min
 //= require ./lib/vendor/jquery-1.12.0.min
 //= require ./lib/ajax-mail
+//= require ./lib/popper
 //= require ./lib/bootstrap.min
 //= require ./lib/imagesloaded.pkgd.min
 //= require ./lib/isotope.pkgd.min
 //= require ./lib/main
 //= require ./lib/owl.carousel.min
 //= require ./lib/plugins
-//= require ./lib/popper
 //= require ./lib/cart
 //= require ./lib/checkout
 

@@ -8,4 +8,5 @@ class Product < ApplicationRecord
   validates :price, presence: true
   mount_uploader :image, PictureUploader
   scope :best_product, -> {order sale_count: :desc}
+  scope :search_product_name, -> (name){where("(name) LIKE :find", find: "%#{name}%")}
 end

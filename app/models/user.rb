@@ -4,6 +4,7 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   has_many :reviews, dependent: :destroy
   has_many :addresses, dependent: :destroy
+  accepts_nested_attributes_for :addresses
   enum role: [:customer, :admin]
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
