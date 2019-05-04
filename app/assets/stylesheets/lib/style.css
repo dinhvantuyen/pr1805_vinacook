@@ -5489,3 +5489,10 @@ button#checkout-next3 {
   padding: 6px, 5px, 2px;
   font-size: 13.5px;
 }
+.search-product {
+  padding: 60px 0px 0px 30px;
+}
+#category_id {
+  height: 45px;
+  background: #eceff8;
+}

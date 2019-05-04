@@ -1,0 +1,10 @@
+<div class="search-product">
+  <div class="tab-content jump">
+    <div id="tab1" class="tab-pane active">
+      <div class="row">
+        <%= render @products %>
+        <%= will_paginate @products %>
+      </div>
+    </div>
+  </div>
+</div>

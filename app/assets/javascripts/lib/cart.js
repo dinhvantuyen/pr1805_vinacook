@@ -26,7 +26,11 @@ $(document).on('turbolinks:load',function(){
       var length_grand_total = $(".grand-total").text().trim().length;
       var old_grand_total = parseInt($(".grand-total").text().trim().slice(1,length_grand_total));
       var subtotal = parseInt(price*newVal);
-      var new_grand_total = parseInt(old_grand_total - price)
+      if (oldVal > 0) {
+        var new_grand_total = parseInt(old_grand_total - price);
+      }else {
+        var new_grand_total = old_grand_total;
+      }
       $input = $(this).next().find(".cart-plus-minus-box")
       $input.val(newVal);
       $(this).parent().parent().next().text("$" + subtotal);

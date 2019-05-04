@@ -7,7 +7,7 @@ class AddressesController < ApplicationController
   def update
     @address = Address.find_by id: params[:address_id]
     @address.present? ? @address.destroy : flash[:warning]="address not exist!"
-    redirect_to new_checkout_path
+    redirect_to new_checkouts_path
   end
 
   private

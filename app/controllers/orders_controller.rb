@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
     current_order = Order.create session[:address_review]
     current_order.update_attribute :subtotal, subtotal
     OrderMailer.order_email(session[:address_review]["email"]).deliver_now
+    checkout_complete
     redirect_to new_orders_path
   end
 

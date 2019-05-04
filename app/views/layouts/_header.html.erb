@@ -10,22 +10,6 @@
         <div class="col-lg-8 col-md-8 col-12 col-sm-8">
           <div class="account-curr-lang-wrap f-right">
             <ul>
-              <li class="top-hover"><a href="#">Language: (ENG) <i class="ion-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">Bangla </a></li>
-                  <li><a href="#">Arabic</a></li>
-                  <li><a href="#">Hindi </a></li>
-                  <li><a href="#">Spanish</a></li>
-                </ul>
-              </li>
-              <li class="top-hover"><a href="#">Currency: (USD) <i class="ion-chevron-down"></i></a>
-                <ul>
-                  <li><a href="#">Taka (BDT)</a></li>
-                  <li><a href="#">Riyal (SAR)</a></li>
-                  <li><a href="#">Rupee (INR)</a></li>
-                  <li><a href="#">Dirham (AED)</a></li>
-                </ul>
-              </li>
               <li class="top-hover"><a href="#">Setting  <i class="ion-chevron-down"></i></a>
                 <ul>
                   <li><a href="wishlist.html">Wishlist  </a></li>
@@ -43,18 +27,21 @@
   <div class="header-middle">
     <div class="container">
       <div class="row">
-        <div class="col-lg-3 col-md-4 col-12 col-sm-4">
+        <div class="col-lg-2 col-md-2 col-12 col-sm-4">
           <div class="logo">
             <%= link_to root_url do %>
               <%= image_tag "logo/logo.png" %>
             <% end %>
           </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-12 col-sm-4">
+        <div class="col-lg-5 col-md-5 col-12 col-sm-4">
           <div class="search-box">
-            <%= form_tag searchs_path do %>
+            <%= form_tag(products_path, method: :get) do %>
               <div class="input-group-search">
-                <%= text_field_tag :search,"", placeholder:"Tìm kiếm", class: "search-index" %>
+                <%= text_field_tag "search_name", params[:search_name], placeholder:"Tên sản phẩm...", class: "search-index" %>
+                <div class="input-group-append">
+                  <%= select_tag :category_id, options_for_select(@categories_for_search), include_blank: "Danh mục" %>
+                </div>
                 <div class="input-group-append">
                   <%= button_tag "Tìm kiếm", class: "btn search-button-index" %>
                 </div>
@@ -111,17 +98,17 @@
                   <li class="single-shopping-cart">
                     <% current_order.product_orders.each do |product_order| %>
                       <div class="shopping-cart-img">
-                        <%= link_to "product_order.product" do %>
+                        <%= link_to product_path(product_order.product_id) do %>
                           <%= image_tag "cart/cart-1.jpg" %>
                         <% end %>
                       </div>
                       <div class="shopping-cart-title">
-                        <h4><%= link_to product_order.product.name, "product_order.product" %></h4>
+                        <h4><%= link_to product_order.product.name, product_path(product_order.product_id) %></h4>
                         <h6>Qty:<%= product_order.quantity %> </h6>
                         <span>$<%= product_order.product.price %></span>
                       </div>
                       <div class="shopping-cart-delete">
-                        <%= link_to "product_orders/#{product_order.product_id}", method: :delete do %>
+                        <%= link_to "product_orders/#{product_order.id}", method: :delete do %>
                           <i class="ion ion-close"></i>
                         <% end %>
                       </div>
@@ -134,7 +121,7 @@
                 </div>
                 <div class="shopping-cart-btn">
                   <%= link_to "view cart", carts_path %>
-                  <%= link_to "checkout", checkouts_path %>
+                  <%= link_to "checkout", new_login_checkout_path %>
                 </div>
               </div>
             </div>

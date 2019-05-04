@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-lg-10 offset-1">
+    <div class="billing-information-wrapper">
+      <%= form_tag(checkouts_path, method: :patch) do %>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :name, "Name" %>
+              <%= text_field_tag :name, session[:address_review]["name"] %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :email, "Email" %>
+              <%= email_field_tag :email, session[:address_review]["email"] %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :address, "Address" %>
+              <%= text_field_tag :address, session[:address_review]["address"] %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :city, "City" %>
+              <%= text_field_tag :city, session[:address_review]["city"] %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :country, "Country" %>
+              <%= text_field_tag :country, session[:address_review]["country"] %>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="billing-info">
+              <%= label_tag :phone, "Phone" %>
+              <%= text_field_tag :phone, session[:address_review]["phone"] %>
+            </div>
+          </div>
+          <div class="button-box">
+            <%= button_tag "DONE", id:"checkout-next3" %>
+            <%= link_to checkouts_path do %>
+              <button type="submit" id="checkout-back1" >Back</button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

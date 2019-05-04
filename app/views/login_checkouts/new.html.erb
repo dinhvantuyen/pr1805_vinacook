@@ -38,12 +38,26 @@
                             <%= f.label :password, "Password*" %>
                             <%= f.password_field :password %>
                           </div>
+                          <%= f.fields_for :addresses do |ff| %>
+                            <div class="login-form">
+                              <%= f.label :password, "Address*" %>
+                              <%= ff.text_field :address %>
+                            </div>
+                            <div class="login-form">
+                              <%= f.label :password, "City*" %>
+                              <%= ff.text_field :city %>
+                            </div>
+                            <div class="login-form">
+                              <%= f.label :password, "Phone*" %>
+                              <%= ff.text_field :phone %>
+                            </div>
+                          <% end %>
                           <div class="login-forget">
                             <p>* Require Fields</p>
                           </div>
                           <div class="button-box">
                             <%= f.button "Submit", id: "submit-checkout" %>
-                            <%= link_to new_checkout_path do %>
+                            <%= link_to new_checkouts_path do %>
                               <button type="submit">As Guest</button>
                             <% end %>
                           </div>

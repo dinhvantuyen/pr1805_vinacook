@@ -32,9 +32,10 @@ class ProductOrdersController < ApplicationController
 
   def destroy
     @order = current_order
-    @product_order = ProductOrder.find_by params[:id]
+    @product_order = ProductOrder.find_by id: params[:id]
     @product_order.destroy
     @product_orders = @order.product_orders
+    redirect_to root_url
   end
 
   private
