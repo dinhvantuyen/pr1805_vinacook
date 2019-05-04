@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
-  get  "/signup",  to: "users#new"
-  post "/signup",  to: "users#create"
   delete "/logout", to: "sessions#destroy"
   get "/logout", to: "sessions#destroy"
 
@@ -15,8 +13,8 @@ Rails.application.routes.draw do
   resources :account_activations, only: :edit
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :login_checkouts
-  resources :checkouts, only: [:new, :index, :create]
-  resource :orders, only: :update
+  resource :checkouts
+  resource :orders, only: [:new, :update]
   resource :address, only: [:create, :update]
   resource :searchs, only: :create
 

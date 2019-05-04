@@ -37,9 +37,21 @@ module SessionsHelper
     @current_user = nil
   end
 
+  def checkout_complete
+    session.delete :order_id
+    session.delete :address_review
+    session.delete :address
+    current_order = nil
+  end
+
   def checkout_order
     return unless current_order.product_orders.empty?
     redirect_to root_url
+  end
+
+  def check_address_review
+    return if session[:address_review].nil?
+    redirect_to checkouts_path
   end
 
 end
