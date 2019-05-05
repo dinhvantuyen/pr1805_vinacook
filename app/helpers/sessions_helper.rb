@@ -54,4 +54,14 @@ module SessionsHelper
     redirect_to checkouts_path
   end
 
+  def categories_for_search
+    @categories_for_search = Category.pluck :name, :id
+  end
+
+  def verify_user
+    @user = User.find_by id: params[:id]
+    return if @user && @user == current_user
+    redirect_to root_url
+  end
+
 end

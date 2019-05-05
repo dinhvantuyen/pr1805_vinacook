@@ -2,7 +2,9 @@ User.create!(name:  "dinhvantuyen",
              email: "dinhtuyen.dgt@gmail.com",
              password:              "123456",
              password_confirmation: "123456",
-             phone: "0123456789")
+             phone: "0123456789",
+             activated: "true",
+             activated_at: Time.zone.now)
 
 Category.create!(name: "Canh")
 Category.create!(name: "Đồ nướng")

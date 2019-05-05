@@ -5496,3 +5496,15 @@ button#checkout-next3 {
   height: 45px;
   background: #eceff8;
 }
+.avatar {
+  padding: 20px 5px 5px 5px;
+}
+.user-info {
+  padding: 20px;
+}
+.user-info span {
+  padding: 3px;
+}
+#edit-user {
+  margin-top: 10px;
+}

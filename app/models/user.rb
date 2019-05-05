@@ -4,7 +4,8 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   has_many :reviews, dependent: :destroy
   has_many :addresses, dependent: :destroy
-  accepts_nested_attributes_for :addresses
+  accepts_nested_attributes_for :addresses, update_only: true
+  mount_uploader :avatar, AvatarUploader
   enum role: [:customer, :admin]
   validates :name, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -15,6 +16,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, length: {minimum: 6}, allow_nil: true
   validates :phone, presence:true, allow_nil: true
+  validate :avatar_size
 
   class << self
 
@@ -75,6 +77,12 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
+  end
+
+  def avatar_size
+    if avatar.size > 5.megabytes
+      errors.add(:avatar, "should be less than 5MB")
+    end
   end
 end
 
