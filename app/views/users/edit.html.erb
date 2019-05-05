@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-lg-6 offset-3">
+    <div class="login-form-container">
+      <h4>Edit Profile </h4>
+      <div class="login-register-form">
+        <%= form_for @user do |f| %>
+          <%= render "shared/error_messages" %>
+          <%= f.label :name, "Name*" %>
+          <%= f.text_field :name %>
+          <%= f.label :email, "Email*" %>
+          <%= f.email_field :email %>
+          <%= f.label :password, "Password*" %>
+          <%= f.password_field :password %>
+          <%= f.fields_for :addresses do |ff| %>
+            <%= ff.hidden_field :id, value: @address.id %>
+            <%= ff.label :address, "Address*" %>
+            <%= ff.text_field :address %>
+            <%= ff.label :city, "City*" %>
+            <%= ff.text_field :city %>
+            <%= ff.label :phone, "Phone*" %>
+            <%= ff.text_field :phone %>
+          <% end %>
+          <span class="picture">
+            <%= f.label :avatar, "Avatar" %>
+            <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+          </span>
+          <div class="button-box">
+            <%= f.button "Update" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -52,6 +52,9 @@
                       <%= ff.text_field :city, placeholder: "City" %>
                       <%= ff.text_field :phone, placeholder: "Phone" %>
                     <% end %>
+                    <span class="picture">
+                      <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
+                    </span>
                     <div class="button-box">
                       <%= f.button "Register" %>
                     </div>
