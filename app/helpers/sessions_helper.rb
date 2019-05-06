@@ -54,6 +54,11 @@ module SessionsHelper
     redirect_to checkouts_path
   end
 
+  def check_address_review_exist
+    return if session[:address_review].present?
+    redirect_to new_checkouts_path
+  end
+
   def categories_for_search
     @categories_for_search = Category.pluck :name, :id
   end

@@ -13,6 +13,7 @@
               <li class="top-hover"><a href="#">Setting  <i class="ion-chevron-down"></i></a>
                 <ul>
                   <li><%= link_to "Wishlist", "#" %></li>
+                  <li><%= link_to "Admin", admin_root_path %></li>
                   <% unless logged_in? %>
                     <li><%= link_to "Login", login_path %></li>
                     <li><%= link_to "Register", login_path %></li>

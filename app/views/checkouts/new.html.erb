@@ -10,15 +10,17 @@
                   <% if current_user.addresses.present? %>
                     <% current_user.addresses.each do |address| %>
                       <div class="col-md-6 col-lg-6">
-                        <%= form_tag("/checkout", method: :post) do %>
+                        <%= form_tag(address_path, method: :post) do %>
                           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                           <div class="single-ship">
                             <input type="radio" name="address" value="address" checked="">
                             <label id="default-address">Using this address</label>
                           </div>
                           <div class="shipping-info-2">
-                            <span>Name: <span id="address-name"><%= address.name %></span></span>
-                            <span>Email: <span id="address-email"><%= address.email %></span></span>
+                            <span>Name: <span id="address-name"><%= address.name.
+                              empty? ? current_user.name : address.name%></span>
+                            </span>
+                            <span>Email: <span id="address-email"><%= address.email || current_user.email %></span></span>
                             <span>Address: <span id="address-address"><%= address.address %></span></span>
                             <span>City: <span id="address-city"><%= address.city %></span></span>
                             <span>Country: <span id="address-country"><%= address.country %></span></span>
@@ -27,7 +29,8 @@
                               <div class="billing-btn">
                                 <%= button_tag "Select", id:"checkout-next1" %>
                               </div>
-                              <%= link_to address_path(:address_id => address.id), method: :patch do %>
+                              <%= link_to address_path(:address_id => address.id)
+                                , method: :patch do %>
                                 <div class="billing-btn">
                                     <button type="submit" id="checkout-next1">DELETE</button>
                                 </div>
@@ -41,7 +44,7 @@
                 <% else %>
                   <% if session[:address].present? %>
                     <div class="col-md-6 col-lg-6">
-                      <%= form_tag("/checkout", method: :post) do %>
+                      <%= form_tag(address_path, method: :post) do %>
                         <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
                         <div class="single-ship">
                           <input type="radio" name="address" value="address" checked="">
