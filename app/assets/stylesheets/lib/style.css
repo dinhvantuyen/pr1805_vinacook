@@ -5508,3 +5508,7 @@ button#checkout-next3 {
 #edit-user {
   margin-top: 10px;
 }
+.register-button {
+  margin-right:0px !important;
+  margin-left: 177px;
+}

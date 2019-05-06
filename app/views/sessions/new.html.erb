@@ -2,7 +2,7 @@
   <div class="container">
     <div class="breadcrumb-content">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><%= link_to "Home", root_url %></li>
         <li class="active"> Login / Register </li>
       </ul>
     </div>
@@ -16,9 +16,6 @@
           <div class="login-register-tab-list nav">
             <a class="active" data-toggle="tab" href="#lg1">
               <h4> login </h4>
-            </a>
-            <a data-toggle="tab" href="#lg2">
-              <h4> register </h4>
             </a>
           </div>
           <div class="tab-content">
@@ -34,29 +31,13 @@
                         <%= f.label "Remember me" %>
                         <%= link_to "Forgot Password?", new_password_reset_path %>
                       </div>
-                      <%= f.button "Login" %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-            <div id="lg2" class="tab-pane">
-              <div class="login-form-container">
-                <div class="login-register-form">
-                  <%= form_for @user do |f| %>
-                    <%= f.text_field :name, placeholder: "Username" %>
-                    <%= f.password_field :password, placeholder: "Password" %>
-                    <%= f.email_field :email, placeholder: "Email" %>
-                    <%= f.fields_for :addresses do |ff| %>
-                      <%= ff.text_field :address, placeholder: "Address" %>
-                      <%= ff.text_field :city, placeholder: "City" %>
-                      <%= ff.text_field :phone, placeholder: "Phone" %>
-                    <% end %>
-                    <span class="picture">
-                      <%= f.file_field :avatar, accept: 'image/jpeg,image/gif,image/png' %>
-                    </span>
-                    <div class="button-box">
-                      <%= f.button "Register" %>
+                      <div>
+                        <%= f.button "Login" %>
+                        <%= link_to new_user_path do %>
+                          <%#= f.button "register", class: "register-button" %>
+                          <button type="submit" class="register-button">Register</button>
+                        <% end %>
+                      </div>
                     </div>
                   <% end %>
                 </div>

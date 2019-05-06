@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-lg-6 offset-3">
     <div class="login-form-container">
+      <div class="login-register-tab-list nav">
+        <a class="active" data-toggle="tab" href="#lg1">
+          <h4> REGISTER </h4>
+        </a>
+      </div>
       <div class="login-register-form">
         <%= form_for @user do |f| %>
           <%= render "shared/error_messages" %>
@@ -12,6 +17,7 @@
             <%= ff.text_field :city, placeholder: "City" %>
             <%= ff.text_field :phone, placeholder: "Phone" %>
           <% end %>
+          <%= f.file_field :avatar %>
           <div class="button-box">
             <%= f.button "Register" %>
           </div>
