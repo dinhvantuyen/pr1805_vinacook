@@ -1,4 +1,5 @@
 <%= form_for [:admin, @product] do |f| %>
+<%= render "shared/admin/error_products", object: f.object %>
   <div class="box-body pad">
     <div class="form-group">
       <div class="form-content">
@@ -22,30 +23,19 @@
         </div>
       </div>
       <div class="form-content">
-        <label class="col-md-2 control-label"> Hình ảnh sản phẩm:
-          <span class="required">
-            *
-          </span>
-        </label>
+        <label class="col-md-2 control-label"> Hình ảnh sản phẩm:</label>
         <div class="col-md-10 mg-10">
           <%= f.file_field :image %>
         </div>
       </div>
       <div class="form-content">
-        <label class="col-md-2 control-label"> Mô tả sản phẩm:
-          <span class="required">
-            *
-          </span>
-        </label>
+        <label class="col-md-2 control-label"> Mô tả sản phẩm:</label>
         <div class="col-md-10 mg-10">
           <%= f.text_field :description, class: "form-control" %>
         </div>
       </div>
       <div class="form-content">
         <label class="col-md-2 control-label"> Giá khuyến mại:
-          <span class="required">
-            *
-          </span>
         </label>
         <div class="col-md-10 mg-10">
           <%= f.text_field :sale_price, class: "form-control" %>
@@ -68,7 +58,15 @@
           </span>
         </label>
         <div class="col-md-10 mg-10">
-          <%= f.select :category_ids, @show_categories, {}, multiple: true, class: "form-control" %>
+          <%= f.collection_check_boxes :category_ids,
+            Category.all, :id, :name do |category| %>
+            <ul class="select-category">
+              <li>
+                <%= category.check_box %>
+                <%= category.label %>
+              </li>
+            </ul>
+          <% end %>
         </div>
       </div>
       <%= f.submit "Thêm mới", class: "btn btn-success" %>

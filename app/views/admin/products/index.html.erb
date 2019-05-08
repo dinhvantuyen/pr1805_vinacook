@@ -18,10 +18,11 @@
               <th>Danh mục sản phẩm</th>
               <th>Gia</th>
               <th>Gia khuyen mai</th>
-              <th>Trang thai</th>
-              <th>Show</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th>Hình ảnh sản phẩm</th>
+              <th>Trạng thái</th>
+              <th>Chi tiết</th>
+              <th>Chỉnh sửa</th>
+              <th>Xóa</th>
             </tr>
           </thead>
           <tbody>
@@ -36,10 +37,11 @@
                 </td>
                 <td><%= product.price %></td>
                 <td><%= product.sale_price %></td>
+                <td><%= image_tag product.image.url || "product/default.jpg", class: "image_product_admin" %></td>
                 <td><%= product.status %></td>
-                <td><%= link_to "Show", admin_product_path(product) %></td>
-                <td><%= link_to "Edit", edit_admin_product_path(product) %></td>
-                <td><%= link_to "Destroy", [:admin, product],
+                <td><%= link_to "Chi tiết", admin_product_path(product) %></td>
+                <td><%= link_to "Chỉnh sửa", edit_admin_product_path(product) %></td>
+                <td><%= link_to "Xóa", [:admin, product],
                   data: { confirm: "Are you sure?" }, method: :delete %></td>
               </tr>
             <% end %>

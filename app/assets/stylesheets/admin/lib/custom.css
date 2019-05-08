@@ -14,5 +14,24 @@ td, th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #f7f5f5;
+}
+.image_product_admin{
+  width: 100px;
+  height: 100px;
+}
+ul.select-category{
+  padding: 0;
+  margin: 0;
+}
+.select-category li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.select-category input[type="checkbox"]{
+  opacity: 1 !important;
+}
+ul.select-category label{
+      padding: 0px 0 0px 20px;
 }

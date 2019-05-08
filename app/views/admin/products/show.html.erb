@@ -15,17 +15,15 @@
             <th>Gía khuyến mại</th>
             <th>Hình ảnh sản phẩm</th>
             <th>Trạng thái</th>
-            <th>Edit</th>
-            <th>Back</th>
+            <th>Chỉnh sửa</th>
           </tr>
           <td><%= @product.name %></td>
           <td><%= @product.description %></td>
           <td><%= @product.price %></td>
           <td><%= @product.sale_price %></td>
-          <td><%= @product.image %></td>
+          <td><%= image_tag @product.image, class: "image_product_admin" %></td>
           <td><%= @product.status %></td>
-          <td><%= link_to "Edit", edit_admin_product_path %></td>
-          <td><%= link_to "Back", admin_products_path %></td>
+          <td><%= link_to "Chỉnh sửa", edit_admin_product_path %></td>
         </table>
       </div>
     </div>

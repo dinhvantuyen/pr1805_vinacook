@@ -48,7 +48,7 @@
                     </span>
                   </label>
                   <div class="col-md-10 mg-10">
-                    <%= f.text_field :description, placeholder: "Nhập mô tả sản phẩm", class: "form-control" %>
+                    <%= f.text_area :description, placeholder: "Nhập mô tả sản phẩm", class: "form-control" %>
                   </div>
                 </div>
                 <div class="form-content">
@@ -58,7 +58,15 @@
                     </span>
                   </label>
                   <div class="col-md-10 mg-10">
-                  <%= f.select :category_ids, Category.pluck(:name, :id), {}, multiple: true, class: "form-control" %>
+                    <%= f.collection_check_boxes :category_ids,
+                      Category.all, :id, :name do |category| %>
+                      <ul class="select-category">
+                        <li>
+                          <%= category.check_box %>
+                          <%= category.label %>
+                        </li>
+                      </ul>
+                    <% end %>
                   </div>
                 </div>
                 <div class="form-content">
@@ -68,6 +76,7 @@
                     </span>
                   </label>
                   <div class="col-md-10 mg-10">
+                    <%= image_tag @product.image, class: "image_product_admin" %>
                     <%= f.file_field :image %>
                   </div>
                 </div>
@@ -78,7 +87,8 @@
                     </span>
                   </label>
                   <div class="col-md-10 mg-10">
-                    <%= f.text_field :status, placeholder: "Trạng thái sản phẩm", class: "form-control" %>
+                    <%#= f.select :status, Product.statuses.keys ,class: "form-control" %>
+                    <%= f.select :status, options_for_select(["Còn hàng", "Hết hàng"]), {},class: "form-control" %>
                   </div>
                 </div>
                 <div class="form-content">
