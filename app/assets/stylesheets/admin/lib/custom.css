@@ -33,3 +33,8 @@ span.fa.fa-fw.field-icon.toggle-password.fa-eye-slash{
   position: relative;
   z-index: 2;
 }
+.form-control[disabled]{
+  background-color: #eee;
+  color: #eee;
+  border-color: #eee;
+}

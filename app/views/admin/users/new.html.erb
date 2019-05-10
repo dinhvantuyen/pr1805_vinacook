@@ -8,6 +8,7 @@
     <div class="col-md-12">
       <div class="box">
         <%= form_for [:admin, @user] do |f| %>
+        <%= render "shared/error_messages", bject: f.object %>
           <div class="box-body pad">
             <div class="form-group">
               <div class="form-content">
