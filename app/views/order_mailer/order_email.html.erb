@@ -1,1 +1,67 @@
-HI every one!!!!!
+<div class="order-review-wrapper">
+  <div class="order-review">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="width-1">Product Name</th>
+            <th class="width-2">Price</th>
+            <th class="width-3">Qty</th>
+            <th class="width-4">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.product_orders.each do |product_order| %>
+            <tr>
+              <td>
+                <div class="o-pro-dec">
+                  <p><%= product_order.product.name %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-price">
+                  <p>$<%= product_order.product.price  %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-qty">
+                  <p><%= product_order.quantity %></p>
+                </div>
+              </td>
+              <td>
+                <div class="o-pro-subtotal">
+                  <p>$ <%= product_order.product.price*product_order.quantity %></p>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="1" id="addreview1">Name: <%= @order.name %></td>
+            <td colspan="2">Subtotal </td>
+            <td colspan="1">$<%= @order.subtotal %></td>
+          </tr>
+          <tr class="tr-f">
+            <td colspan="1" id="addreview2">Email: <%= @order.email %> </td>
+            <td colspan="2">Shipping & Handling (Flat Rate - Fixed</td>
+            <td colspan="1">$45</td>
+          </tr>
+          <tr>
+            <td colspan="1" id="addreview3">Address: <%= @order.address %> </td>
+            <td colspan="2">Grand Total</td>
+            <td colspan="1">$<%= @order.subtotal + 45 %></td>
+          </tr>
+          <tr>
+            <td colspan="4" id="addreview4">City: <%= @order.city %></td>
+          </tr>
+          <tr>
+            <td colspan="4" id="addreview5">Country: <%= @order.country %></td>
+          </tr><tr>
+            <td colspan="4" id="addreview6">Phone: <%= @order.phone %></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

@@ -12,7 +12,6 @@
             <ul>
               <li class="top-hover"><a href="#">Setting  <i class="ion-chevron-down"></i></a>
                 <ul>
-                  <li><%= link_to "Wishlist", "#" %></li>
                   <li><%= link_to "Admin", admin_root_path %></li>
                   <% unless logged_in? %>
                     <li><%= link_to "Login", login_path %></li>
@@ -78,14 +77,6 @@
               <% end %>
             </div>
             <div class="header-wishlist">
-              <a href="wishlist.html">
-                <div class="header-icon-style">
-                  <i class="icon-heart icons"></i>
-                </div>
-                <div class="wishlist-text">
-                  <p>Your <br> <span>Wishlist</span></p>
-                </div>
-              </a>
             </div>
             <div class="header-cart">
               <%= link_to "", class: "cart-btn" do %>
@@ -145,21 +136,41 @@
                 <li class="top-hover">
                   <%= link_to "home", root_url %>
                 </li>
-                <li><a href="">Box nhẹ nhàng</a></li>
-                <li><a href="">Box gia đình</a></li>
-                <li class="top-hover"><a href="">WEEK <i class="ion-chevron-down"></i></a>
+                <li class="top-hover"><a href="">Category <i class="ion-chevron-down"></i></a>
                   <ul class="submenu">
-                    <li><a href="">Monday</a></li>
-                    <li><a href="">Tuesday</a></li>
-                    <li><a href="">Wednesday</a></li>
-                    <li><a href="">Thursday</a></li>
-                    <li><a href="">Friday</a></li>
-                    <li><a href="">Saturday</a></li>
-                    <li><a href="">Sunday</a></li>
+                    <% Category.all.each do |category| %>
+                      <li>
+                        <%= link_to products_path( :category_id => category.id), method: :get do %>
+                          <%= category.name %>
+                        <% end %>
+                      </li>
+                    <% end %>
                   </ul>
                 </li>
-                <li><%= link_to "About", "#" %></li>
-                <li><%= link_to "Contact Us", "#" %></li>
+                <li class="top-hover"><a href="">Price <i class="ion-chevron-down"></i></a>
+                  <ul class="submenu">
+                    <li>
+                      <%= link_to searchs_path(:code => 1) do %>
+                        <%= "< $100" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to searchs_path(:code => 2) do %>
+                        <%= "$100 - $200" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to searchs_path(:code => 3) do %>
+                        <%= "$200 - $400" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to searchs_path(:code => 4) do %>
+                        <%= ">$400" %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </nav>
           </div>

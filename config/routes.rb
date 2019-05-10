@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resource :checkouts
   resource :orders, only: [:new, :update]
   resource :address, only: [:create, :update]
-  resource :searchs, only: :create
+  resource :searchs
 
   namespace :admin do
     root "dashboard#index"
@@ -25,4 +25,8 @@ Rails.application.routes.draw do
     resources :categories
     resources :users
   end
+  resources :users do
+    resources :orders
+  end
+
 end

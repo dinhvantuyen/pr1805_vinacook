@@ -2431,7 +2431,7 @@ Background variation set
 .footer-time li:last-child {
   padding: 0 0 0px;
 }
-.footer-content ul li a {
+.footer-content ul li span {
   color: #fff;
 }
 .footer-content ul li a:hover,
@@ -5511,4 +5511,14 @@ button#checkout-next3 {
 .register-button {
   margin-right:0px !important;
   margin-left: 177px;
+}
+.billing-infomation {
+  padding: 30px 0px 0px 20px;
+  text-align: center;
+  font-family: sans-serif;
+}
+.password-resets {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  text-align: center;
 }
