@@ -45,7 +45,7 @@ module SessionsHelper
   end
 
   def checkout_order
-    return unless current_order.product_orders.empty?
+    return unless current_order.product_orders.empty? || current_order.subtotal == 0
     redirect_to root_url
   end
 

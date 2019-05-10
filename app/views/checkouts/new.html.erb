@@ -29,8 +29,7 @@
                               <div class="billing-btn">
                                 <%= button_tag "Select", id:"checkout-next1" %>
                               </div>
-                              <%= link_to address_path(:address_id => address.id)
-                                , method: :patch do %>
+                              <%= link_to address_path(:address_id => address.id), method: :patch do %>
                                 <div class="billing-btn">
                                     <button type="submit" id="checkout-next1">DELETE</button>
                                 </div>

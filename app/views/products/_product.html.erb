@@ -17,7 +17,6 @@
           <% end %>
         </div>
         <div class="pro-action-right">
-          <a title="Wishlist" href="wishlist.html"><i class="ion-ios-heart-outline"></i></a>
         </div>
       </div>
     </div>
@@ -26,8 +25,8 @@
         <%= link_to product.name, product %>
       </h4>
       <div class="product-price-wrapper">
-        <span><%= product.sale_price || "$100" %></span>
-        <span class="product-price-old"><%= product.price %> </span>
+        <span><%= "$#{product.sale_price}" || "$100" %></span>
+        <span class="product-price-old"><%= "$#{product.price}" %> </span>
       </div>
     </div>
   </div>

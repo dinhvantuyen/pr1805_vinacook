@@ -1,0 +1,14 @@
+<div class="search-product">
+  <div class="tab-content jump">
+    <div id="tab1" class="tab-pane active">
+      <div class="row">
+        <% unless @products.empty? %>
+          <%= render @products %>
+          <%= will_paginate @products %>
+        <% else %>
+          <% flash[:info] = "Không có sản phẩm nào được tìm thấy!" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

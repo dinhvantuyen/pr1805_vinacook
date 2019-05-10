@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+
+  def new
+    @order = Order.last
+  end
+
   def update
     current_order.product_orders.each do |product_order|
       product = Product.find_by id: product_order.product.id
@@ -11,11 +16,12 @@ class OrdersController < ApplicationController
       end
     end
     subtotal = current_order.subtotal
-    current_order = Order.create session[:address_review]
+    current_order.update session[:address_review]
     current_order.update_attribute :subtotal, subtotal
-    OrderMailer.order_email(session[:address_review]["email"]).deliver_now
+    OrderMailer.order_email(current_order).deliver_now
     checkout_complete
     redirect_to new_orders_path
+    flash[:success] = "Checkout successfully!"
   end
 
 end
